@@ -10,16 +10,81 @@
 <body>
     <header role="header"></header>
     <main role="main">
-        <section id="landingPage"></section>
-        <section id="signUpPage"></section>
-        <section id="signInPage"></section>
-        <section id="searchPage"></section>
-        <section id="resultsPage"></section>
+        <section id="landingPage">
+            <nav class="nav">
+                <h2 id="logo">Recipe Pal</h2>
+                <h2>Favorites</h2>
+            </nav>
 
+            <p id="landingPageQuote">"Take care of your body, it's the only place you have to live"</p>
+        </section>
+
+
+        <section id="signInPage">
+            <fieldset>
+                <legend>Sign in</legend>
+
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required />
+                </div>
+
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" minlength="8" required placeholder="8 characters minimum" />
+                </div>
+
+                <input type="submit" value="Sign in">
+
+            </fieldset>
+        </section>
+
+
+
+        <section id="signUpPage"></section>
+        <form action="submit">
+            <h2 id="signUpLogo" class="signUpPage">Sign up Here:</h2>
+
+            <div>
+                <p id="fullName" class="signUpPage">Full Name</p>
+                <input type="text">
+
+
+                <p id="userName" class="signUpPage">User Name</p>
+                <input type="text">
+
+                <p id="password" class="signUpPage">Password</p>
+                <input type="text">
+
+                <p id="confirmPassword" class="signUpPage">Confirm Password</p>
+
+                <button id="signUpButton" class="signUpPage">Sign Up</button>
+            </div>
+
+
+        </form>
+
+
+        <section id="searchPage"></section>
+        <h1>Just put in the ingredients you would like to use, and RecipePal will find you delicious dishes with those ingredients!</h1>
+        <input type="text" id="searchBar"><button>search</button>
+
+
+        <section id="resultsPage"></section>
+        <div>
+            <span>Images of Recipes</span>
+            <span>Description for Recipes</span>
+        </div>
 
 
     </main>
-    <footer role="footer"></footer>
+    <footer role="footer">
+        <div>
+            <span id="gmail" class="footer">Gmail logo</span>
+            <span id="github" cclass=footer>GitHub Logo</span>
+            <span id="linkedIn" class="footer">LinkedIn logo</span>
+        </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="client.js"></script>
 

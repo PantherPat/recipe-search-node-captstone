@@ -49,56 +49,107 @@ General styles (General Module, wrapping around the modules below)
 (the styles used everywhere in the page (like the Body) or styles which are used in more than 2 of the modules below (h2, h3, h4, h5, h6, p, a, ul, li))
 */
 
-body {}
+body {
+    text-align: center;
+    /*
+    background-image: url(images/heather-schwartz-493944-unsplash.jpg);
+    background-position: center center;
+    background-size: cover;
+*/
+    margin-bottom: 25%;
 
+}
+
+fieldset {
+    display: block;
+    width: 90%;
+    margin: 1rem auto;
+    padding: 0.5rem;
+}
+
+input {
+    width: auto;
+    padding: 0.5rem;
+    background-color: #eee;
+    color: #ccc;
+}
 
 /* -------------------------------------
 Header styles (Main Module)
 (all the styles inside the < header > or < nav > tags)
 */
 
+/*
 .nav {
-    background-color: green;
-    height: 50pxpx;
+    height: 50px;
     display: block;
 }
+*/
+
+/*
+#landingPage{
+    background-image: url(images/heather-schwartz-493944-unsplash.jpg);
+    background-position: center center;
+    background-size: cover;
+    margin-bottom: 25%;
+
+
+}
+*/
+
+#landingPageQuote {
+    margin-top: 25%;
+    margin-bottom: 25%;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-size: 25px;
+
+
+}
+
+/*
+#project-logo{
+    width: ;
+
+}
+*/
+
+/*
+#signInPage {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 10%;
+    border: 10px solid;
+
+}
+*/
+
+signInLogo {
+    padding-top:
+}
+
+.signUpPage {
+    border: 10px solid orange;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin: 20%;
+
+}
+
+#inputBox {}
+
 
 /* -------------------------------------
 Content styles (Main Module)
 (all the styles inside the < sections > or < aside > tags)
 */
 
-legend {
-    background-color: #000;
-    color: #fff;
-    padding: 3px 6px;
-}
-
-.output {
-    font: 1rem 'Fira Sans', sans-serif;
-}
-
-label {
-    display: inline-block;
-    font-size: .9rem;
-    width: 35%;
-}
-
-input[type='text'],
-input[type='password'] {
-    width: 60%;
-}
-
-input {
-    margin: .4rem 0;
-}
-
-
 /* -------------------------------------
 Footer styles (Main Module)
 (all the styles inside the < footer > tag)
 */
 
+/*
 footer {
     position: absolute;
     bottom: 0;
@@ -107,6 +158,7 @@ footer {
     border: 20px red;
 
 }
+*/
 
 /* -------------------------------------
 place all the desktop styles above this line

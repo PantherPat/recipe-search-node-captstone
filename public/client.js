@@ -6,5 +6,5 @@
 
 var signUp = "".val();
 var userName = "".val();
-var passWord = "".val();
+var password = "".val();
 var searchBar = "".val();

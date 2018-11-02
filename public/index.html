@@ -9,61 +9,54 @@
 </head>
 
 <body>
-    <header role="header">
-        <img id="project-logo" src="images/project-logo.jpg" alt="logo-image">
+    <header>
+        <h2 id="navButton"><button>Favorites</button></h2>
+        <!--                <img id="project-logo" src="images/logo_transparent.png" alt="logo-image">-->
         <nav>
-            <h2>Favorites button</h2>
         </nav>
     </header>
 
     <main role="main" id="signInPageWrapper">
+
         <h1 id="landingPageQuote">"Take care of your body, it's the only place you have to live"</h1>
-        <form class="sign-in-form" id=signInPage action="submit">
-            <h3 id="signUpLogo">Sign in Here:</h3>
+        <form class="sign-in-form" id="signInPage">
 
             <fieldset class="sign-in-page-user-wrapper">
-                <label id="fullName" class="inputTags">User Name</label>
                 <input id="signInPageUserName" type="text" placeholder="User Name" value="Johnny@gmail.com">
             </fieldset>
 
             <fieldset class="sign-in-page-password-wrapper">
-                <label id="userName" class="inputTags">Password</label>
                 <input id="signInPagePassword" type="text" placeholder="Password" value="123">
             </fieldset>
-            <input type="button" value="Sign in">
+            <button id="signInButton" type="submit">Sign In</button>
+            <p>To Register <a class="showRegister" href="#"> click here</a></p>
         </form>
-    </main>
 
 
-    <main class="signUpPage">
-        <form class="signUpForm" action="submit">
-            <h3 id="signUpLogo">Sign up Here:</h3>
+        <form class="signUpForm">
 
 
 
             <fieldset class="sign-up-page-full-wrapper">
-                <label id="fullName" class="inputTags">Full Name</label>
                 <input id="signUpPageFullName" type="text" placeholder="Full Name" value="Johnny Dow">
             </fieldset>
 
 
             <fieldset class="sign-up-page-user-wrapper">
-                <label id="fullName" class="inputTags">User Name</label>
                 <input id="signUpPageUserName" type="text" placeholder="User Name" value="Johnny@gmail.com">
             </fieldset>
 
             <fieldset class="sign-up-page-password-wrapper">
-                <label id="userName" class="inputTags">Password</label>
                 <input id="signUpPagePassword" type="text" placeholder="Password" value="123">
             </fieldset>
 
             <fieldset class="sign-up-page-confirm-password-wrapper">
-                <label id="userName" class="inputTags">Confirm Password</label>
                 <input id="signUpPageConfirmPassword" type="text" placeholder="Password" value="123">
             </fieldset>
 
 
-            <input type="submit" value="Sign Up">
+            <button id="signUpButton" type="submit">Sign Up</button>
+            <p>To Sign In <a class="showSignIn" href="#"> click here</a></p>
 
         </form>
     </main>
@@ -72,14 +65,14 @@
 
     <main id="searchPageWrapper">
         <section id="searchPage">
-            <form class="SearchForm" action="submit">
+            <form class="searchForm">
 
                 <fieldset class="search-input-wrapper">
 
                     <input id="searchInput" type="text" placeholder="Ingredients" value="Rice, Mushrooms, Broccoli">
 
                 </fieldset>
-                <input type="button" value="Search">
+                <button id="searchButton" type="submit">Search</button>
 
             </form>
 
@@ -125,14 +118,21 @@
     <footer role="footer">
 
         <ul id="social-media-images">
-            <li id="gmail" class="social-images">Gmail logo</li>
-            <li id="github" class=social-images>GitHub Logo</li>
-            <li id="linkedIn" class="social-images">LinkedIn logo</li>
+            <li><a href="patrick.keshishian@gmail.com" target="_blank"></a>
+                <img class="social-images" id="gmailImage" src="images/if_gmail_1220367.png" alt=""></li>
+
+
+            <li><a href="https://www.linkedin.com/in/patrick-keshishian-81932068/" target="_blank"></a>
+                <img class="social-images" id="linkedinImage" src="images/In-2C-128px-TM.png" alt=""></li>
+
+
+
+            <li><a href="https://github.com/PantherPat" target="_blank"></a> <img class="social-images" id="githubImage" src="images/Octocat.png" alt=""></li>
         </ul>
 
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="client.js"></script>
+    <!--    <script src="client.js"></script>-->
 
 </body>
 

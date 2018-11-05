@@ -51,12 +51,6 @@ General styles (General Module, wrapping around the modules below)
 
 body {
     text-align: center;
-    /*
-    background-image: url(images/heather-schwartz-493944-unsplash.jpg);
-    background-position: center center;
-    background-size: cover;
-*/
-    margin-bottom: 25%;
 
 }
 
@@ -64,7 +58,7 @@ fieldset {
     display: block;
     width: 90%;
     margin: 1rem auto;
-    padding: 0.5rem;
+    padding: 0.3rem;
 }
 
 input {
@@ -82,7 +76,7 @@ button {
     background: -moz-linear-gradient(top, #D74736, #AD2719);
     background: -ms-linear-gradient(top, #D74736, #AD2719);
     display: block;
-    margin: 1rem auto;
+    margin: 0.5rem auto;
     padding: 0.5rem;
     color: white;
 
@@ -94,20 +88,22 @@ Header styles (Main Module)
 */
 
 header {
-    background-color: white;
+    background-color: #C53727;
+
 }
 
-/*
 #project-logo {
-    width: 100px;
-    margin-right: 70%;
+    width: 50%;
+    margin-top: 15%;
+
 
 
 }
-*/
 
 #navButton {
-    font-weight: normal
+    font-weight: normal;
+    color: inherit;
+    margin-left: 87%
 }
 
 #signInPageWrapper {
@@ -142,7 +138,7 @@ header {
 
 .sign-in-form,
 .signUpForm {
-    border: 3px solid red;
+    /*    border: 3px solid red;*/
     margin-left: auto;
     margin-right: auto;
     background-color: white;
@@ -200,7 +196,6 @@ Footer styles (Main Module)
 
 #social-media-images li {
     display: inline-block;
-    padding: 30px;
 
 }
 

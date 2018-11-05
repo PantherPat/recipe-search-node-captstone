@@ -9,16 +9,11 @@
 </head>
 
 <body>
-    <header>
-        <h2 id="navButton"><button>Favorites</button></h2>
-        <!--                <img id="project-logo" src="images/logo_transparent.png" alt="logo-image">-->
-        <nav>
-        </nav>
-    </header>
+
 
     <main role="main" id="signInPageWrapper">
+        <img id="project-logo" src="images/logo_transparent.png" alt="logo-image">
 
-        <h1 id="landingPageQuote">"Take care of your body, it's the only place you have to live"</h1>
         <form class="sign-in-form" id="signInPage">
 
             <fieldset class="sign-in-page-user-wrapper">
@@ -30,6 +25,7 @@
             </fieldset>
             <button id="signInButton" type="submit">Sign In</button>
             <p>To Register <a class="showRegister" href="#"> click here</a></p>
+
         </form>
 
 
@@ -59,59 +55,67 @@
             <p>To Sign In <a class="showSignIn" href="#"> click here</a></p>
 
         </form>
+
+        <form class="searchForm">
+
+            <fieldset class="search-input-wrapper">
+
+                <input id="searchInput" type="text" placeholder="Ingredients" value="Rice, Mushrooms, Broccoli">
+
+            </fieldset>
+            <button id="searchButton" type="submit">Search</button>
+
+        </form>
+        <section id="searchPage">
+
+
+            <h2 id="search-page-quote">Search By Ingredients. Discover Amazing Recipes!</h2>
+        </section>
     </main>
 
 
 
     <main id="searchPageWrapper">
         <section id="searchPage">
-            <form class="searchForm">
-
-                <fieldset class="search-input-wrapper">
-
-                    <input id="searchInput" type="text" placeholder="Ingredients" value="Rice, Mushrooms, Broccoli">
-
-                </fieldset>
-                <button id="searchButton" type="submit">Search</button>
-
-            </form>
 
 
+            <!--
             <h2 id="search-page-quote">Search By Ingredients. Discover Amazing Recipes!</h2>
         </section>
+-->
 
-        <section id="resultsPage">
-            <ul class="results-page-wrapper">
-                <li class="result-items">
-                    <div class="result-item-image">
-                        <img src="" alt="">
-                    </div>
-                    <div class="result-item-description">
-                        Recipe Description
-                    </div>
+            <section id="resultsPage">
+                <ul class="results-page-wrapper">
+                    <li class="result-items">
+                        <div class="result-item-image">
+                            <img src="" alt="">
+                        </div>
+                        <div class="result-item-description">
+                            Recipe Description
+                        </div>
 
-                </li>
-                <li class="result-items">
-                    <div class="result-item-image">
-                        <img src="" alt="">
-                    </div>
-                    <div class="result-item-description">
-                        Recipe Description
-                    </div>
+                    </li>
+                    <li class="result-items">
+                        <div class="result-item-image">
+                            <img src="" alt="">
+                        </div>
+                        <div class="result-item-description">
+                            Recipe Description
+                        </div>
 
-                </li>
-                <li class="result-items">
-                    <div class="result-item-image">
-                        <img src="" alt="">
-                    </div>
-                    <div class="result-item-description">
-                        Recipe Description
-                    </div>
+                    </li>
+                    <li class="result-items">
+                        <div class="result-item-image">
+                            <img src="" alt="">
+                        </div>
+                        <div class="result-item-description">
+                            Recipe Description
+                        </div>
 
-                </li>
-            </ul>
+                    </li>
+                </ul>
 
-        </section>
+            </section>
     </main>
 
 
@@ -132,7 +136,7 @@
 
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <!--    <script src="client.js"></script>-->
+    <!--            <script src="client.js"></script>-->
 
 </body>
 

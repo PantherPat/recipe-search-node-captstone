@@ -32,6 +32,17 @@ $(document).on('click', '.showSignIn', function (event) {
 
 
 //form trigger
-$(document).submit('form', function (event) {
+$(document).submit('.sign-in-form', function (event) {
     event.preventDefault();
+    $("main").hide();
+    $(".signUpForm").hide();
+    $("#searchPage").show();
+
+});
+
+$(document).submit('.signUpForm', function (event) {
+    event.preventDefault();
+    $("main").hide();
+    $(".sign-in-form").hide();
+    $(".signUpForm").show();
 });

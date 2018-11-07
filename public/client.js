@@ -9,6 +9,7 @@ $(document).ready(function () {
     $("main").hide();
     $(".signUpForm").hide();
     $("#signInPageWrapper").show();
+    $("#searchPage").hide();
 
 
 });
@@ -20,6 +21,7 @@ $(document).on('click', '.showRegister', function (event) {
     $(".signUpForm").show();
     $("#signInPageWrapper").show();
     $("#signInPage").hide();
+    $("#searchPage").hide();
 });
 
 $(document).on('click', '.showSignIn', function (event) {
@@ -28,21 +30,77 @@ $(document).on('click', '.showSignIn', function (event) {
     $(".signUpForm").hide();
     $("#signInPageWrapper").show();
     $("#signInPage").show();
+    $("#searchPage").hide();
+
 });
 
 
 //form trigger
-$(document).submit('.sign-in-form', function (event) {
+$("#signInButton").click(function (event) {
     event.preventDefault();
-    $("main").hide();
-    $(".signUpForm").hide();
-    $("#searchPage").show();
-
-});
-
-$(document).submit('.signUpForm', function (event) {
-    event.preventDefault();
-    $("main").hide();
     $(".sign-in-form").hide();
-    $(".signUpForm").show();
+    $("#searchPage").show();
+    $(".signUpForm").hide();
 });
+
+$("#signUpButton").click(function (event) {
+    event.preventDefault();
+    $(".sign-in-form").hide();
+    $("#searchPage").show();
+    $(".signUpForm").hide();
+});
+
+$("#searchButton").click(function (event) {
+    event.preventDefault();
+    $(".sign-in-form").hide();
+    $("#searchPage").show();
+    $(".signUpForm").hide();
+    $("#searchPageWrapper").show();
+
+});
+
+$(".sign-in-form").submit(function (event) {
+    event.preventDefault();
+
+    //take the input from the user
+    const username = $("#signInPageUserName").val();
+    const password = $("#signInPagePassword").val();
+
+    //validate the input
+    if (username == "") {
+        alert('Please input user name');
+    } else if (password == "") {
+        alert('Please input password');
+    }
+    //if the input is valid
+    else {
+        //create the payload object (what data we send to the api call)
+        const loginUserObject = {
+            username: username,
+            password: password
+        };
+        //console.log(loginUserObject);
+
+        //make the api call using the payload above
+        $.ajax({
+            type: 'POST',
+            url: '/users/login',
+            dataType: 'json',
+            data: JSON.stringify(loginUserObject),
+            contentType: 'application/json'
+        })
+        //if call is succefull
+            .done(function (result) {
+            console.log(result);
+        })
+        //if the call is failing
+            .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+    };
+});
+
+
+

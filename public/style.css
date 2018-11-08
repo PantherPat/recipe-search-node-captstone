@@ -173,6 +173,18 @@ Header styles (Main Module)
     background-color:
 }
 
+#result-items {
+    display: inline block;
+
+}
+
+.result-item-image {
+    width: 100px;
+    height: 100px;
+
+
+}
+
 /* -------------------------------------
 Content styles (Main Module)
 (all the styles inside the < sections > or < aside > tags)

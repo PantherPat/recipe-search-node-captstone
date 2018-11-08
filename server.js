@@ -66,7 +66,6 @@ app.post('/users/create', (req, res) => {
     let name = req.body.name;
     let username = req.body.username;
     let password = req.body.password;
-    let confirmPassword = req.body.confirmPassword;
 
     //exclude extra spaces from the username and password
     username = username.trim();
@@ -80,7 +79,7 @@ app.post('/users/create', (req, res) => {
 
             //display it
             return res.status(500).json({
-                message: 'Internal server error'
+                message: 'Encryption Key Error'
             });
         }
 
@@ -92,7 +91,7 @@ app.post('/users/create', (req, res) => {
 
                 //display it
                 return res.status(500).json({
-                    message: 'Internal server error'
+                    message: 'Encrypted Password Error'
                 });
             }
 
@@ -107,7 +106,7 @@ app.post('/users/create', (req, res) => {
                 if (err) {
                     //display it
                     return res.status(500).json({
-                        message: 'Internal Server Error'
+                        message: 'Creating New User in DB Error'
                     });
                 }
                 //if creating a new user in the DB is succefull
@@ -128,7 +127,7 @@ app.post('/users/login', function (req, res) {
     //take the username and the password from the ajax api call
     const username = req.body.username;
     const password = req.body.password;
-
+    console.log(username, password);
     //using the mongoose DB schema, connect to the database and the user with the same username as above
     User.findOne({
         username: username
@@ -139,14 +138,14 @@ app.post('/users/login', function (req, res) {
 
             //display it
             return res.status(500).json({
-                message: "Internal server error"
+                message: "Error connecting to the database"
             });
         }
         // if there are no users with that username
         if (!items) {
             //display it
             return res.status(401).json({
-                message: "Username is already taken"
+                message: "Invalid Username"
             });
         }
         //if the username is found
@@ -159,7 +158,10 @@ app.post('/users/login', function (req, res) {
                 if (err) {
 
                     //display error
-                    console.log('Could not connect to the DB to validate the password.');
+                    return res.status(500).json({
+                        message: "Could not connect to the DB to validate the password"
+                    });
+
                 }
 
                 //if the password is not valid

@@ -38,29 +38,7 @@ $(document).on('click', '.showSignIn', function (event) {
 //form trigger
 $("#signInButton").click(function (event) {
     event.preventDefault();
-    $(".sign-in-form").hide();
-    $("#searchPage").show();
-    $(".signUpForm").hide();
-});
 
-$("#signUpButton").click(function (event) {
-    event.preventDefault();
-    $(".sign-in-form").hide();
-    $("#searchPage").show();
-    $(".signUpForm").hide();
-});
-
-$("#searchButton").click(function (event) {
-    event.preventDefault();
-    $(".sign-in-form").hide();
-    $("#searchPage").show();
-    $(".signUpForm").hide();
-    $("#searchPageWrapper").show();
-
-});
-
-$(".sign-in-form").submit(function (event) {
-    event.preventDefault();
 
     //take the input from the user
     const username = $("#signInPageUserName").val();
@@ -79,28 +57,92 @@ $(".sign-in-form").submit(function (event) {
             username: username,
             password: password
         };
-        //console.log(loginUserObject);
+        console.log(loginUserObject);
 
         //make the api call using the payload above
         $.ajax({
-            type: 'POST',
-            url: '/users/login',
-            dataType: 'json',
-            data: JSON.stringify(loginUserObject),
-            contentType: 'application/json'
-        })
-        //if call is succefull
+                type: 'POST',
+                url: '/users/login',
+                dataType: 'json',
+                data: JSON.stringify(loginUserObject),
+                contentType: 'application/json'
+            })
+            //if call is succefull
             .done(function (result) {
-            console.log(result);
-        })
-        //if the call is failing
+                console.log(result);
+                $(".sign-in-form").hide();
+                $("#searchPage").show();
+                $(".signUpForm").hide();
+                $('#loggedInUserName').val(result.username);
+            })
+            //if the call is failing
             .fail(function (jqXHR, error, errorThrown) {
-            console.log(jqXHR);
-            console.log(error);
-            console.log(errorThrown);
-        });
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
     };
 });
 
+$("#signUpButton").click(function (event) {
+    event.preventDefault();
 
+    //take the input from the user
+    const name = $("#signUpPageFullName").val();
+    const username = $("#signUpPageUserName").val();
+    const password = $("#signUpPagePassword").val();
+    const confirmPassword = $("#signUpPageConfirmPassword").val();
 
+    //validate the input
+    if (name == "") {
+        alert('Please add a name');
+    } else if (username == "") {
+        alert('Please add an user name');
+    } else if (password == "") {
+        alert('Please add a password');
+    } else if (confirmPassword != password) {
+        alert("Passwords do not match")
+    }
+    //if the input is valid
+    else {
+        //create the payload object (what data we send to the api call)
+        const newUserObject = {
+            name: name,
+            username: username,
+            password: password
+        };
+        //console.log(newUserObject);
+
+        //make the api call using the payload above
+        $.ajax({
+                type: 'POST',
+                url: '/users/create',
+                dataType: 'json',
+                data: JSON.stringify(newUserObject),
+                contentType: 'application/json'
+            })
+            //if call is succefull
+            .done(function (result) {
+                console.log(result);
+                $(".sign-in-form").hide();
+                $("#searchPage").show();
+                $(".signUpForm").hide();
+                $('#loggedInUserName').val(result.username);
+            })
+            //if the call is failing
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    };
+});
+
+$("#searchButton").click(function (event) {
+    event.preventDefault();
+    $(".sign-in-form").hide();
+    $("#searchPage").show();
+    $(".signUpForm").hide();
+    $("#searchPageWrapper").show();
+
+});

@@ -93,6 +93,9 @@ button {
 
 }
 
+
+
+
 /* -------------------------------------
 Header styles (Main Module)
 (all the styles inside the < header > or < nav > tags)
@@ -173,17 +176,35 @@ Header styles (Main Module)
     background-color:
 }
 
-#result-items {
-    display: inline block;
+.result-items {
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.result-item-image,
+.result-item-description {
+    display: inline-block;
+    width: 45%;
+    /*    border: 1px solid red;*/
+    vertical-align: top;
 
 }
 
-.result-item-image {
-    width: 100px;
-    height: 100px;
-
-
+.result-item-image img {
+    width: 100%;
+    margin-top: 15px;
+    border: 1px solid black;
 }
+
+.result-item-description {
+    padding-top: 15px;
+    padding-left: 30px;
+    text-align: left;
+}
+
+
 
 /* -------------------------------------
 Content styles (Main Module)
@@ -197,6 +218,7 @@ Footer styles (Main Module)
 .social-images {
     padding: 10px;
     width: 60px;
+    border: none;
 }
 
 #social-media-images li {

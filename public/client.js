@@ -150,16 +150,14 @@ function displayEdamamRecipes(result) {
         buildTheHtmlOutput += '</div>';
         buildTheHtmlOutput += '<div class="result-item-description">';
         buildTheHtmlOutput += '<h3>' + resultValue.recipe.label + '</h3>'; //insert api information
-        //        buildTheHtmlOutput += '<p class="recipe-description">' + resultValue.recipe.label + '</p>';
-        //        buildTheHtmlOutput += 'Cherry tomatoe soup with garlic and sprouts. Excellent for a cold</p>';
         buildTheHtmlOutput += '<ul class="recipe-ingredients">';
         $.each(resultValue.recipe.ingredients, function (resultIngredientsKey, resultIngredientsValue) {
             buildTheHtmlOutput += '<li>' + resultIngredientsValue.text + '</li>';
         });
         buildTheHtmlOutput += '</ul>';
-        buildTheHtmlOutput += '<button class="details-button">Details</button>';
-        //        buildTheHtmlOutput += '</div>';
-        buildTheHtmlOutput += '</li>;';
+        buildTheHtmlOutput += '<a target="_blank" class="details-button" href="' + resultValue.recipe.url + '">Details</a>';
+        buildTheHtmlOutput += '</div>';
+        buildTheHtmlOutput += '</li>';
     });
 
     //use the HTML output to show it in the index.html

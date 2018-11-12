@@ -144,22 +144,22 @@ function displayEdamamRecipes(result) {
 
     $.each(result.hits, function (resultKey, resultValue) {
         //create and populate one LI for each of the results ( "+=" means concatenate to the previous one)
-        buildTheHtmlOutput +='<li class="result-items">';
-        buildTheHtmlOutput +='<div class="result-item-image">';
-        buildTheHtmlOutput +='<img src="images/blur-bowl-cherry-tomatoes-416537.jpg" alt="">';
-        buildTheHtmlOutput +='</div>';
-        buildTheHtmlOutput +='<div class="result-item-description">';
-        buildTheHtmlOutput +='<h3>' + resultValue.recipe.label + '</h3>';//insert api information
-        buildTheHtmlOutput +='<p class="recipe-description">';
-        buildTheHtmlOutput +='Cherry tomatoe soup with garlic and sprouts. Excellent for a cold</p>';
-        buildTheHtmlOutput +='<ul class="recipe-ingredients">';
-        buildTheHtmlOutput +='<li>Tomato</li>';
-        buildTheHtmlOutput +='<li>cherry</li>';
-        buildTheHtmlOutput +='<li>Sprouts</li>';
-        buildTheHtmlOutput +='</ul>';
-        buildTheHtmlOutput +='<button class="details-button">Details</button>';
-        buildTheHtmlOutput +='</div>';
-        buildTheHtmlOutput +='</li>;';
+        buildTheHtmlOutput += '<li class="result-items">';
+        buildTheHtmlOutput += '<div class="result-item-image">';
+        buildTheHtmlOutput += "<img src='" + resultValue.recipe.image + "'/>";
+        buildTheHtmlOutput += '</div>';
+        buildTheHtmlOutput += '<div class="result-item-description">';
+        buildTheHtmlOutput += '<h3>' + resultValue.recipe.label + '</h3>'; //insert api information
+        //        buildTheHtmlOutput += '<p class="recipe-description">' + resultValue.recipe.label + '</p>';
+        //        buildTheHtmlOutput += 'Cherry tomatoe soup with garlic and sprouts. Excellent for a cold</p>';
+        buildTheHtmlOutput += '<ul class="recipe-ingredients">';
+        $.each(resultValue.recipe.ingredients, function (resultIngredientsKey, resultIngredientsValue) {
+            buildTheHtmlOutput += '<li>' + resultIngredientsValue.text + '</li>';
+        });
+        buildTheHtmlOutput += '</ul>';
+        buildTheHtmlOutput += '<button class="details-button">Details</button>';
+        //        buildTheHtmlOutput += '</div>';
+        buildTheHtmlOutput += '</li>;';
     });
 
     //use the HTML output to show it in the index.html

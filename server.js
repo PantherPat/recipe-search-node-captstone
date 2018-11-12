@@ -182,57 +182,8 @@ app.post('/users/login', function (req, res) {
         };
     });
 });
-// external API call
-//let getRecipesFromEdamam = function (ingredients) {
-//    let emitter = new events.EventEmitter();
-//    let options = {
-//        host: 'api.edamam.com',
-//        path: '/search?q=' + ingredients + '&app_id=6571a93b&app_key=fb779a44b1eb7dc5918482cf5f2f5c0f&from=0&to=3&calories=591-722&health=alcohol-free',
-//        method: 'GET',
-//        gzip: true,
-//        headers: {
-//            //            'Authorization': "fb779a44b1eb7dc5918482cf5f2f5c0f",
-//            'Content-Type': "application/json",
-//            'Port': 443,
-//            'User-Agent': 'Paw/3.1.2 (Macintosh; OS X/10.12.5) GCDHTTPRequest'
-//        }
-//    };
-//
-//    https.get(options, function (res) {
-//        //        console.log(res);
-//        let body = '';
-//        res.on('data', function (chunk) {
-//            //                        body += chunk;
-//            //                        let jsonFormattedResults = JSON.parse(body);
-//            emitter.emit('end', chunk);
-//        });
-//
-//    }).on('error', function (e) {
-//
-//        emitter.emit('error', e);
-//    });
-//    return emitter;
-//};
 
 
-// local API endpoints
-//app.get('/edamam/:ingredient', function (req, res) {
-//
-//
-//    //external api function call and response
-//    let searchReq = getRecipesFromEdamam(req.params.ingredient);
-//
-//    //get the data from the first api call
-//    searchReq.on('end', function (item) {
-//        res.json(item);
-//    });
-//
-//    //error handling
-//    searchReq.on('error', function (code) {
-//        res.sendStatus(code);
-//    });
-//
-//});
 
 app.get('/edamam/:ingredient', function (req, res) {
 
@@ -242,7 +193,8 @@ app.get('/edamam/:ingredient', function (req, res) {
         gzip: true
     }, function (error, response, body) {
         // Use external API results to save them in the database
-        res.json(body);
+        res.json(JSON.parse(body));
+//        res.json(body);
     });
 
 });

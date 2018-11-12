@@ -138,6 +138,33 @@ $("#signUpButton").click(function (event) {
     };
 });
 
+function displayEdamamRecipes(result) {
+    //create an empty variable to store one LI for each one the results
+    var buildTheHtmlOutput = "";
+
+    $.each(result.hits, function (resultKey, resultValue) {
+        //create and populate one LI for each of the results ( "+=" means concatenate to the previous one)
+        buildTheHtmlOutput +='<li class="result-items">';
+        buildTheHtmlOutput +='<div class="result-item-image">';
+        buildTheHtmlOutput +='<img src="images/blur-bowl-cherry-tomatoes-416537.jpg" alt="">';
+        buildTheHtmlOutput +='</div>';
+        buildTheHtmlOutput +='<div class="result-item-description">';
+        buildTheHtmlOutput +='<h3>' + resultValue.recipe.label + '</h3>';//insert api information
+        buildTheHtmlOutput +='<p class="recipe-description">';
+        buildTheHtmlOutput +='Cherry tomatoe soup with garlic and sprouts. Excellent for a cold</p>';
+        buildTheHtmlOutput +='<ul class="recipe-ingredients">';
+        buildTheHtmlOutput +='<li>Tomato</li>';
+        buildTheHtmlOutput +='<li>cherry</li>';
+        buildTheHtmlOutput +='<li>Sprouts</li>';
+        buildTheHtmlOutput +='</ul>';
+        buildTheHtmlOutput +='<button class="details-button">Details</button>';
+        buildTheHtmlOutput +='</div>';
+        buildTheHtmlOutput +='</li>;';
+    });
+
+    //use the HTML output to show it in the index.html
+    $(".results-page-wrapper").html(buildTheHtmlOutput);
+}
 $("#searchButton").click(function (event) {
     event.preventDefault();
     //take the input from the user
@@ -151,19 +178,12 @@ $("#searchButton").click(function (event) {
     //if the input is valid
     else {
 
-        //create the payload object (what data we send to the api call)
-        const recipeObject = {
-            searchInput: searchInput,
-            loggedInUserName: loggedInUserName,
-        };
-        console.log(entryObject);
 
         //make the api call using the payload above
         $.ajax({
-                type: 'POST',
+                type: 'GET',
                 url: '/edamam/' + searchInput,
                 dataType: 'json',
-                data: JSON.stringify(entryObject),
                 contentType: 'application/json'
             })
             //if call is succefull
@@ -173,22 +193,11 @@ $("#searchButton").click(function (event) {
                 $("#searchPage").show();
                 $(".signUpForm").hide();
                 $("#searchPageWrapper").show();
-                //            $('section').hide();
-                //            $('.navbar').show();
-                //            $('#user-dashboard').show();
-                //            $('#loggedInName').text(result.name);
-                //            $('#loggedInUserName').val(result.username);
-                //            $('#add-entry-container').hide();
-                //            //                noEntries();
-                //            //Add Entry to page
-                //            $('#user-list').prepend(addEntryRenderHTML(result));
-                //            $('html, body').animate({
-                //                scrollTop: $(`#${result._id}`).offset().top
-                //            }, 1000);
+
 
                 //                $().scrollTop();
 
-                //                updateEditFormValues(result);
+                displayEdamamRecipes(result);
             })
             //if the call is failing
             .fail(function (jqXHR, error, errorThrown) {

@@ -146,6 +146,13 @@ function displayEdamamRecipes(result) {
         //create and populate one LI for each of the results ( "+=" means concatenate to the previous one)
         buildTheHtmlOutput += '<li class="result-items">';
         buildTheHtmlOutput += '<div class="result-item-image">';
+        buildTheHtmlOutput += '<form class="addToFavoritesList">';
+        buildTheHtmlOutput += '<input type="hidden" class="addToFavoritesListLabel" value="' + resultValue.recipe.label + '">';
+        buildTheHtmlOutput += '<input type="hidden" class="addToFavoritesListUrl" value="' + resultValue.recipe.url + '">';
+        buildTheHtmlOutput += '<button type="submit" class="addToFavoritesListButton">';
+        buildTheHtmlOutput += '<i class="fa fa-plus-square-o" aria-hidden="true"></i>';
+        buildTheHtmlOutput += '</button>';
+        buildTheHtmlOutput += '</form>';
         buildTheHtmlOutput += "<img src='" + resultValue.recipe.image + "'/>";
         buildTheHtmlOutput += '</div>';
         buildTheHtmlOutput += '<div class="result-item-description">';
@@ -206,4 +213,53 @@ $("#searchButton").click(function (event) {
     };
 
 
+});
+$(document).on("click", ".addToFavoritesListButton", function (event) {
+    event.preventDefault();
+    alert('hello');
+
+    //take the input from the user
+    const label = $(this).parent().find(".addToFavoritesListLabel").val();
+    const url = $(this).parent().find(".addToFavoritesListUrl").val();
+    const loggedInUserName = $("#loggedInUserName").val();
+
+    //validate the input
+    if (label == "") {
+        alert('Please add a name');
+    } else if (url == "") {
+        alert('Please add an user name');
+    }
+    //if the input is valid
+    else {
+        //create the payload object (what data we send to the api call)
+        const newFavoritesObject = {
+            label: label,
+            url: url,
+            loggedInUserName: loggedInUserName
+        };
+        //console.log(newUserObject);
+
+        //make the api call using the payload above
+        $.ajax({
+                type: 'POST',
+                url: '/favorite/create',
+                dataType: 'json',
+                data: JSON.stringify(newFavoritesObject),
+                contentType: 'application/json'
+            })
+            //if call is succefull
+            .done(function (result) {
+                console.log(result);
+                $(".sign-in-form").hide();
+                $("#searchPage").show();
+                $(".signUpForm").hide();
+                $('#loggedInUserName').val(result.username);
+            })
+            //if the call is failing
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    };
 });

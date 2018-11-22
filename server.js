@@ -184,8 +184,6 @@ app.post('/users/login', function (req, res) {
     });
 });
 
-
-
 app.get('/edamam/:ingredient', function (req, res) {
 
     request({
@@ -225,157 +223,45 @@ app.post('/favorite/create', (req, res) => {
             }
         });
 });
-// do we append the information?
 
-// PUT --------------------------------------
-app.put('/entry/:id', function (req, res) {
-    let toUpdate = {};
-    //    let updateableFields = ['achieveWhat', 'achieveHow', 'achieveWhen', 'achieveWhy']; //<--Marius? 'entryType
-    let updateableFields = ['entryType', 'inputDate', 'inputPlay', 'inputAuthor', 'inputRole', 'inputCo', 'inputLocation', 'inputNotes', 'loggedInUserName'];
-    updateableFields.forEach(function (field) {
-        if (field in req.body) {
-            toUpdate[field] = req.body[field];
-        }
-    });
-    //    console.log(toUpdate);
-    Entry
-        .findByIdAndUpdate(req.params.id, {
-            $set: toUpdate
-        }).exec().then(function (achievement) {
-            return res.status(204).end();
-        }).catch(function (err) {
-            return res.status(500).json({
-                message: 'Internal Server Error'
+app.get('/favorite/get/:loggedInUserName', function (req, res) {
+
+    Favorite
+        .find({
+            loggedInUserName: req.params.loggedInUserName
+        })
+        .then(function (favoritesOutput) {
+            res.json({
+                favoritesOutput
+            });
+        })
+        .catch(function (err) {
+            console.error(err);
+            res.status(500).json({
+                message: 'Internal server error'
             });
         });
 });
 
-// GET ------------------------------------
-// accessing all of a user's entries
-//app.get('/entry-date/:user', function (req, res) {
-//
-//    Entry
-//        .find()
-//        .sort('inputDate')
-//        .then(function (entries) {
-//            let entriesOutput = [];
-//            entries.map(function (entry) {
-//                if (entry.loggedInUserName == req.params.user) {
-//                    entriesOutput.push(entry);
-//                }
-//            });
-//            res.json({
-//                entriesOutput
-//            });
-//        })
-//        .catch(function (err) {
-//            console.error(err);
-//            res.status(500).json({
-//                message: 'Internal server error'
-//            });
-//        });
-//});
-//app.get('/entry-read/:user', function (req, res) {
-//
-//    Entry
-//        .find({
-//            "entryType": "read"
-//        })
-//        .sort('inputDate')
-//        .then(function (entries) {
-//            let entriesOutput = [];
-//            entries.map(function (entry) {
-//                if (entry.loggedInUserName == req.params.user) {
-//                    entriesOutput.push(entry);
-//                }
-//            });
-//            res.json({
-//                entriesOutput
-//            });
-//        })
-//        .catch(function (err) {
-//            console.error(err);
-//            res.status(500).json({
-//                message: 'Internal server error'
-//            });
-//        });
-//});
-//app.get('/entry-seen/:user', function (req, res) {
-//
-//    Entry
-//        .find({
-//            "entryType": "seen"
-//        })
-//        .sort('inputDate')
-//        .then(function (entries) {
-//            let entriesOutput = [];
-//            entries.map(function (entry) {
-//                if (entry.loggedInUserName == req.params.user) {
-//                    entriesOutput.push(entry);
-//                }
-//            });
-//            res.json({
-//                entriesOutput
-//            });
-//        })
-//        .catch(function (err) {
-//            console.error(err);
-//            res.status(500).json({
-//                message: 'Internal server error'
-//            });
-//        });
-//});
-//app.get('/entry-performed/:user', function (req, res) {
-//
-//    Entry
-//        .find({
-//            "entryType": "performed"
-//        })
-//        .sort('inputDate')
-//        .then(function (entries) {
-//            let entriesOutput = [];
-//            entries.map(function (entry) {
-//                if (entry.loggedInUserName == req.params.user) {
-//                    entriesOutput.push(entry);
-//                }
-//            });
-//            res.json({
-//                entriesOutput
-//            });
-//        })
-//        .catch(function (err) {
-//            console.error(err);
-//            res.status(500).json({
-//                message: 'Internal server error'
-//            });
-//        });
-//});
 
-// accessing a single achievement by id
-//app.get('/entry/:id', function (req, res) {
-//    Entry
-//        .findById(req.params.id).exec().then(function (entry) {
-//            return res.json(entry);
-//        })
-//        .catch(function (entries) {
-//            console.error(err);
-//            res.status(500).json({
-//                message: 'Internal Server Error'
-//            });
-//        });
-//});
+
+
+
+
+
+
 
 // DELETE ----------------------------------------
 // deleting an achievement by id
-//app.delete('/entry/:id', function (req, res) {
-//    Entry.findByIdAndRemove(req.params.id).exec().then(function (entry) {
-//        return res.status(204).end();
-//    }).catch(function (err) {
-//        return res.status(500).json({
-//            message: 'Internal Server Error'
-//        });
-//    });
-//});
+app.delete('/favorite/delete/:id', function (req, res) {
+    Favorite.findByIdAndRemove(req.params.id).exec().then(function (favorite) {
+        return res.status(204).end();
+    }).catch(function (err) {
+        return res.status(500).json({
+            message: 'Internal Server Error'
+        });
+    });
+});
 
 // MISC ------------------------------------------
 // catch-all endpoint if client makes request to non-existent endpoint

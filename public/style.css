@@ -59,8 +59,11 @@ nav {
     opacity: 0.8;
     padding-bottom: 30px;
     margin-bottom: 0%;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 50%;
+
 }
 
 fieldset {
@@ -102,8 +105,15 @@ Header styles (Main Module)
 */
 
 #project-logo {
-    width: 300px;
+    width: 70%;
     margin-top: 5%;
+}
+
+#favoritesButton {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+
 }
 
 
@@ -142,8 +152,8 @@ Header styles (Main Module)
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 15%;
-    margin-bottom: 10%
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .search-input-wrapper {
@@ -173,35 +183,75 @@ Header styles (Main Module)
     font-family: 'Lora', serif;
     text-shadow: 0 1px 0 black;
     margin-bottom: 15%;
-    background-color:
 }
 
 .result-items {
     display: block;
-    width: 80%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
+    border: 2px solid red;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+
+h3 {
+    margin-top: 50px;
+
+
 }
 
 .result-item-image,
 .result-item-description {
     display: inline-block;
-    width: 45%;
-    /*    border: 1px solid red;*/
+    width: 50%;
+    max-width: 300px;
     vertical-align: top;
+    margin-left: 30px;
 
 }
 
 .result-item-image img {
     width: 100%;
-    margin-top: 15px;
+    margin-top: px;
     border: 1px solid black;
+
 }
 
 .result-item-description {
     padding-top: 15px;
     padding-left: 30px;
     text-align: left;
+    height: 400px;
+    overflow-y: auto;
+}
+
+#savedRecipes {
+    background: white;
+    opacity: .8;
+    padding: 10px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.list-Of-Recipes {
+    margin-top: 15px;
+    margin-left: 1%;
+    display: block;
+}
+
+.list-Of-Recipes a {
+    color: black;
+    text-decoration: none;
+}
+
+.list-Of-Recipes a:hover {
+    color: blue;
+    text-decoration: underline;
+
 }
 
 

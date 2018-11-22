@@ -10,8 +10,9 @@ $(document).ready(function () {
     $(".signUpForm").hide();
     $("#signInPageWrapper").show();
     $("#searchPage").hide();
-
-
+    $("#favoritesButton").hide();
+    $("#savedRecipes").hide();
+    $("#project-logo").show();
 });
 
 //button triggers
@@ -31,9 +32,16 @@ $(document).on('click', '.showSignIn', function (event) {
     $("#signInPageWrapper").show();
     $("#signInPage").show();
     $("#searchPage").hide();
+    $("#favoritesButton").show();
 
 });
 
+$("#favoritesButton button").click(function (event) {
+    event.preventDefault();
+    $("#favoritesButton").show();
+    $("#project-logo").show();
+    $("#savedRecipes").toggle();
+});
 
 //form trigger
 $("#signInButton").click(function (event) {
@@ -70,9 +78,12 @@ $("#signInButton").click(function (event) {
             //if call is succefull
             .done(function (result) {
                 console.log(result);
+                displayFavoriteRecipes(result.username);
                 $(".sign-in-form").hide();
                 $("#searchPage").show();
                 $(".signUpForm").hide();
+                $("#favoritesButton").show();
+                $("#savedRecipes").hide();
                 $('#loggedInUserName').val(result.username);
             })
             //if the call is failing
@@ -127,6 +138,8 @@ $("#signUpButton").click(function (event) {
                 $(".sign-in-form").hide();
                 $("#searchPage").show();
                 $(".signUpForm").hide();
+                $("nav").show();
+                $("#savedRecipes").hide();
                 $('#loggedInUserName').val(result.username);
             })
             //if the call is failing
@@ -140,17 +153,19 @@ $("#signUpButton").click(function (event) {
 
 function displayEdamamRecipes(result) {
     //create an empty variable to store one LI for each one the results
+
     var buildTheHtmlOutput = "";
 
     $.each(result.hits, function (resultKey, resultValue) {
         //create and populate one LI for each of the results ( "+=" means concatenate to the previous one)
+        console.log()
         buildTheHtmlOutput += '<li class="result-items">';
         buildTheHtmlOutput += '<div class="result-item-image">';
         buildTheHtmlOutput += '<form class="addToFavoritesList">';
         buildTheHtmlOutput += '<input type="hidden" class="addToFavoritesListLabel" value="' + resultValue.recipe.label + '">';
         buildTheHtmlOutput += '<input type="hidden" class="addToFavoritesListUrl" value="' + resultValue.recipe.url + '">';
         buildTheHtmlOutput += '<button type="submit" class="addToFavoritesListButton">';
-        buildTheHtmlOutput += '<i class="fa fa-plus-square-o" aria-hidden="true"></i>';
+        buildTheHtmlOutput += "Add to Favorites";
         buildTheHtmlOutput += '</button>';
         buildTheHtmlOutput += '</form>';
         buildTheHtmlOutput += "<img src='" + resultValue.recipe.image + "'/>";
@@ -198,10 +213,6 @@ $("#searchButton").click(function (event) {
                 $("#searchPage").show();
                 $(".signUpForm").hide();
                 $("#searchPageWrapper").show();
-
-
-                //                $().scrollTop();
-
                 displayEdamamRecipes(result);
             })
             //if the call is failing
@@ -215,8 +226,9 @@ $("#searchButton").click(function (event) {
 
 });
 $(document).on("click", ".addToFavoritesListButton", function (event) {
+
     event.preventDefault();
-    alert('hello');
+
 
     //take the input from the user
     const label = $(this).parent().find(".addToFavoritesListLabel").val();
@@ -237,7 +249,7 @@ $(document).on("click", ".addToFavoritesListButton", function (event) {
             url: url,
             loggedInUserName: loggedInUserName
         };
-        //console.log(newUserObject);
+        //        console.log(newFavoritesObject);
 
         //make the api call using the payload above
         $.ajax({
@@ -253,7 +265,8 @@ $(document).on("click", ".addToFavoritesListButton", function (event) {
                 $(".sign-in-form").hide();
                 $("#searchPage").show();
                 $(".signUpForm").hide();
-                $('#loggedInUserName').val(result.username);
+
+                displayFavoriteRecipes(loggedInUserName);
             })
             //if the call is failing
             .fail(function (jqXHR, error, errorThrown) {
@@ -262,4 +275,81 @@ $(document).on("click", ".addToFavoritesListButton", function (event) {
                 console.log(errorThrown);
             });
     };
+});
+
+
+$(document).on("click", "#favoritesButton", function (event) {
+    //we want to show container for recipes
+});
+
+// show all favorites for logged in user
+function displayFavoriteRecipes(loggedInUserName) {
+    //create an empty variable to store the results in
+    $.ajax({
+            type: 'GET',
+            url: '/favorite/get/' + loggedInUserName,
+            dataType: 'json',
+            data: JSON.stringify(displayFavoriteRecipes),
+            contentType: 'application/json'
+        })
+        //if call is succefull
+        .done(function (result) {
+            console.log(result);
+            //create html here and then create a app.get in the server.js for the correct functions
+            var buildTheHtmlOutput = "";
+
+            $.each(result.favoritesOutput, function (resultKey, resultValue) {
+                buildTheHtmlOutput += '<li class = "list-Of-Recipes">';
+                buildTheHtmlOutput += '<form class="deleteFromFavoritesList">';
+                buildTheHtmlOutput += '<input type="hidden" class="deleteFromFavoritesListId" value="' + resultValue._id + '">';
+                buildTheHtmlOutput += '<button type="submit" class="deleteFromFavoritesListButton">';
+                buildTheHtmlOutput += "X";
+                buildTheHtmlOutput += '</button>';
+                buildTheHtmlOutput += '</form>';
+                buildTheHtmlOutput += '<a href="' + resultValue.url + '" >';
+                buildTheHtmlOutput += resultValue.label;
+                buildTheHtmlOutput += '</a>';
+                buildTheHtmlOutput += '</li>';
+            });
+            $("#savedRecipes ul").html(buildTheHtmlOutput);
+
+
+        })
+        //if the call is failing
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
+$(document).on("click", ".deleteFromFavoritesListButton", function (event) {
+
+    event.preventDefault();
+
+
+    //take the input from the user
+    const deleteFavoritesId = $(this).parent().find(".deleteFromFavoritesListId").val();
+    const loggedInUserName = $("#loggedInUserName").val();
+
+    console.log(deleteFavoritesId);
+    //make the api call using the payload above
+    $.ajax({
+            type: 'DELETE',
+        url: '/favorite/delete/'+deleteFavoritesId,
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        //if call is succefull
+        .done(function (result) {
+            console.log(result);
+
+
+            displayFavoriteRecipes(loggedInUserName);
+        })
+        //if the call is failing
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
 });

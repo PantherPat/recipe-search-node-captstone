@@ -13,7 +13,14 @@
     <input type="hidden" id="loggedInUserName" value="">
 
     <main role="main" id="signInPageWrapper">
-        <nav><img id="project-logo" src="images/logo_transparent.png" alt="logo-image">
+
+
+
+        <nav>
+            <div id="favoritesButton">
+                <button>Favorites</button>
+            </div>
+            <img id="project-logo" src="images/logo_transparent.png" alt="logo-image">
         </nav>
 
         <form class="sign-in-form" id="signInPage">
@@ -58,9 +65,16 @@
 
         </form>
         <section id="searchPage">
+            <section id="savedRecipes">
+                <ul>
+
+                </ul>
+
+            </section>
             <form class="searchForm">
 
                 <fieldset class="search-input-wrapper">
+                    <h2 id="search-page-quote">Search By Ingredients. Discover Amazing Recipes!</h2>
 
                     <input id="searchInput" type="text" placeholder="Ingredients" value="Rice, Mushrooms, Broccoli">
 
@@ -69,8 +83,10 @@
 
             </form>
 
-
-            <h2 id="search-page-quote">Search By Ingredients. Discover Amazing Recipes!</h2>
+            <!--
+<h2 id="search-page-quote">
+    Search By Ingredients. Discover Amazing Recipes!</h2>
+-->
         </section>
     </main>
 

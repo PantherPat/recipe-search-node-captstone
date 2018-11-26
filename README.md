@@ -13,7 +13,7 @@ User Dashboard to search
 Search Results Page|
 ![Search Results ](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/SearchResults.jpg)
 Delete Recipe |
-![Delete Recipe](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/DeletePage.jpg)
+![Favorited Recipe](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/DeletePage.jpg)
 
 ## User Cases=
 As a visitor you should be able to securely log in to my applications. In order to properly/securly navigate the application.

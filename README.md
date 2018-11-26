@@ -7,13 +7,13 @@ The RecipePal app is designed to populate recipe based off of ingredients you wo
 Home/Sign-in Page
 ![Home/Sign-In Page](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/sign-in-page.jpg)  
 Sign-Up Page
-|  ![Sign-Up[ Page](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/Sign-up-page.jpg)
+![Sign-Up[ Page](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/Sign-up-page.jpg)
 User Dashboard to search
-| ![Search Page](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/search-page.jpg)
+![Search Page](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/search-page.jpg)
 Search Results Page|
-| ![Search Results ](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/SearchResults.jpg)
+![Search Results ](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/SearchResults.jpg)
 Delete Recipe |
-![Delete Recipe](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/DeletePage.jpg) |
+![Delete Recipe](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/DeletePage.jpg)
 
 ## User Cases=
 As a visitor you should be able to securely log in to my applications. In order to properly/securly navigate the application.

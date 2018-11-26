@@ -5,7 +5,7 @@ The RecipePal app is designed to populate recipe based off of ingredients you wo
 ## Screenshots
 
 Home/Sign-in Page
-![Home/Sign-In Page](https://github.com/KatiLong/shakespeare-passport-node-capstone/blob/master/github-images/home-page.jpg)  
+![Home/Sign-In Page](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/sign-in-page.jpg)  
 Sign-Up Page
 |  ![Sign-Up[ Page](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/Sign-up-page.jpg)
 User Dashboard to search

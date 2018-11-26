@@ -1,6 +1,6 @@
 # Recipe Search Node Capstone **
 
-The RecipePal app is designed to populate recipe based off of ingredients you would like to use.
+The RecipePal app is designed to populate recipes based off of ingredients you would like to use. Simply put in the the ingredients and the app will generate dishes that have at least one of the ingredients in it.
 
 ## Screenshots
 

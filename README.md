@@ -1,35 +1,36 @@
 # Recipe Search Node Capstone **
 
-The RecipePal app is designed for people that want to search for food recipes either based off of their most recent grocery items, or what is currently left over in their food stock, or simply looking for healthy dishes for their healthy lifestyle!
+The RecipePal app is designed to populate recipe based off of ingredients you would like to use.
 
 ## Screenshots
 
-Home Page View | Login Page View #2
-:-------------------------:|:-------------------------:
-![Home Page](https://github.com/KatiLong/shakespeare-passport-node-capstone/blob/master/github-images/home-page.jpg)  |  ![Login Page](https://github.com/KatiLong/shakespeare-passport-node-capstone/blob/master/github-images/login.jpg)
-User Dashboard | Seen Entry
-![User Dashboard](https://github.com/KatiLong/shakespeare-passport-node-capstone/blob/master/github-images/user-dashboard.jpg) | ![Seen Entry](https://github.com/KatiLong/shakespeare-passport-node-capstone/blob/master/github-images/seen-entry.jpg)
-Add Entry  | Edit Entry
-![Add Entry](https://github.com/KatiLong/shakespeare-passport-node-capstone/blob/master/github-images/add-entry.jpg) | ![Edit Entry](https://github.com/KatiLong/shakespeare-passport-node-capstone/blob/master/github-images/edit-entry.jpg)
-Delete Entry |
-![Delete Entry](https://github.com/KatiLong/shakespeare-passport-node-capstone/blob/master/github-images/delete-entry.jpg) |
+Home/Sign-in Page
+![Home/Sign-In Page](https://github.com/KatiLong/shakespeare-passport-node-capstone/blob/master/github-images/home-page.jpg)  
+Sign-Up Page
+|  ![Sign-Up[ Page](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/Sign-up-page.jpg)
+User Dashboard to search
+| ![Search Page](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/search-page.jpg)
+Search Results Page|
+| ![Search Results ](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/SearchResults.jpg)
+Delete Recipe |
+![Delete Recipe](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/DeletePage.jpg) |
 
 ## User Cases=
 As a visitor you should be able to securely log in to my applications. In order to properly/securly navigate the application.
 As a visitor after you have logged in you should be forwarded to the home/main page. In order begin your search.
 As a user, you should be able to enter keywords in the search bar to search for recipes containing those ingredients.
-As a user, you should see search results populating dishes/recipes based off of the parameter you set. So that
-As a user you should see the recipe broken down by ingredients with the exact measurements.
-As a user you should be able to "favorite" the recipes you really like and have them saved.
-As a user you should be able to rate the recipes based off of difficulty and flavor. The difficulty will be from 1-10, and the flavor will be from 1-5.
-As a user you should be able to leave reviews on the recipes for others to see.
+As a user, you should see search results populating dishes/recipes based off of the parameter you set. So that 
+As a user you should see the recipe broken down by ingredients with the exact measurements. So that the user can begin their cooking process immediately without having to go to a different site.
+As a user you should be able to "favorite" the recipes you really like and have them saved. So that the user can easily find their saved recipes
+
+
 
 
 ### UI Flow
-![UI Flow handwritten draft](https://github.com/KatiLong/node-capstone/blob/master/github-images/node-capstone-user-flow.jpg)
+![UI Flow handwritten draft](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/UI-flow.jpg)
 
 ### Wireframe _main
-![Wireframe _Main](https://user-images.githubusercontent.com/22078092/49029513-ca748600-f172-11e8-9b6b-5d468b09c90f.jpg)
+![Wireframe _Main](https://github.com/PantherPat/recipe-search-node-captstone/blob/master/github-images/Wireframe.jpg)
 
 ## Working Prototype
 You can access a working prototype of the app here: https://recipe-search-node-captstone.herokuapp.com/

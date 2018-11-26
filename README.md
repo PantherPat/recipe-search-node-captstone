@@ -29,7 +29,7 @@ As a user you should be able to leave reviews on the recipes for others to see.
 ![UI Flow handwritten draft](https://github.com/KatiLong/node-capstone/blob/master/github-images/node-capstone-user-flow.jpg)
 
 ### Wireframe _main
-![Wireframe _Main]("https://user-images.githubusercontent.com/22078092/49029266-30acd900-f172-11e8-9f9a-88c67bde53bd.png")
+![Wireframe _Main](https://user-images.githubusercontent.com/22078092/49029513-ca748600-f172-11e8-9b6b-5d468b09c90f.jpg)
 
 ## Working Prototype
 You can access a working prototype of the app here: https://recipe-search-node-captstone.herokuapp.com/

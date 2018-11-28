@@ -234,6 +234,7 @@ h3 {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
+    display: inline-block;
 
 }
 
@@ -252,6 +253,15 @@ h3 {
     color: blue;
     text-decoration: underline;
 
+}
+
+.favoriteListColumn {
+    display: inline-block;
+    width: 90%;
+}
+
+.deleteFromFavoritesList {
+    width: 9%;
 }
 
 

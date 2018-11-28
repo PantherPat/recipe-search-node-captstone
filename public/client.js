@@ -32,8 +32,6 @@ $(document).on('click', '.showSignIn', function (event) {
     $("#signInPageWrapper").show();
     $("#signInPage").show();
     $("#searchPage").hide();
-    $("#favoritesButton").show();
-
 });
 
 $("#favoritesButton button").click(function (event) {
@@ -141,6 +139,7 @@ $("#signUpButton").click(function (event) {
                 $("nav").show();
                 $("#savedRecipes").hide();
                 $('#loggedInUserName').val(result.username);
+                $("#favoritesButton").show();
             })
             //if the call is failing
             .fail(function (jqXHR, error, errorThrown) {
@@ -300,13 +299,13 @@ function displayFavoriteRecipes(loggedInUserName) {
 
             $.each(result.favoritesOutput, function (resultKey, resultValue) {
                 buildTheHtmlOutput += '<li class = "list-Of-Recipes">';
-                buildTheHtmlOutput += '<form class="deleteFromFavoritesList">';
+                buildTheHtmlOutput += '<form class="deleteFromFavoritesList favoriteListColumn">';
                 buildTheHtmlOutput += '<input type="hidden" class="deleteFromFavoritesListId" value="' + resultValue._id + '">';
                 buildTheHtmlOutput += '<button type="submit" class="deleteFromFavoritesListButton">';
                 buildTheHtmlOutput += "X";
                 buildTheHtmlOutput += '</button>';
                 buildTheHtmlOutput += '</form>';
-                buildTheHtmlOutput += '<a href="' + resultValue.url + '" >';
+                buildTheHtmlOutput += '<a class="favoriteListColumn" href="' + resultValue.url + '" >';
                 buildTheHtmlOutput += resultValue.label;
                 buildTheHtmlOutput += '</a>';
                 buildTheHtmlOutput += '</li>';
@@ -335,7 +334,7 @@ $(document).on("click", ".deleteFromFavoritesListButton", function (event) {
     //make the api call using the payload above
     $.ajax({
             type: 'DELETE',
-        url: '/favorite/delete/'+deleteFavoritesId,
+            url: '/favorite/delete/' + deleteFavoritesId,
             dataType: 'json',
             contentType: 'application/json'
         })
